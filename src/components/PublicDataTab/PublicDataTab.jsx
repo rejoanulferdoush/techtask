@@ -18,7 +18,7 @@ const PublicDataTab = () => {
         Projects Data
       </h1>
       <div className="relative flex items-center justify-center -mx-[15px] mb-8 px-15 py-4 border-2 border-sky-500 rounded-md shadow-lg before:content-['Filter_Table'] before:text-black before:absolute before:left-2 before:-top-2.5 before:bg-white before:text-xs before:px-1 before:rounded-sm before:border-sky-500 before:border-2">
-        <div className="w-1/5 px-[15px]">
+        <div className="w-1/6 px-[15px]">
           <label className="block text-sm font-medium leading-6 text-gray-900">
             Project Name
           </label>
@@ -31,7 +31,20 @@ const PublicDataTab = () => {
             />
           </div>
         </div>
-        <div className="w-1/5 px-[15px]">
+        <div className="w-1/6 px-[15px]">
+          <label className="block text-sm font-medium leading-6 text-gray-900">
+            Assigned By
+          </label>
+          <div className="mt-2">
+            <input
+              type="text"
+              name="projectName"
+              placeholder="Assigned By"
+              className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset outline-none transition-all ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+        <div className="w-1/6 px-[15px]">
           <label className="block text-sm font-medium leading-6 text-gray-900">
             Task Against
           </label>
@@ -46,7 +59,7 @@ const PublicDataTab = () => {
             </select>
           </div>
         </div>
-        <div className="w-1/5 px-[15px]">
+        <div className="w-1/6 px-[15px]">
           <label className="block text-sm font-medium leading-6 text-gray-900">
             Status
           </label>
@@ -62,7 +75,7 @@ const PublicDataTab = () => {
             </select>
           </div>
         </div>
-        <div className="w-2/5 px-[15px]">
+        <div className="w-2/6 px-[15px]">
           <label className="block text-sm font-medium leading-6 text-gray-900">
             Date Range
           </label>
