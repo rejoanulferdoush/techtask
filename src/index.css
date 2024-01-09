@@ -5,3 +5,13 @@
 * {
   font-family: "Lexend", sans-serif;
 }
+
+.date-range input {
+  outline: none;
+  border: 1px solid #d1d5db;
+}
+
+.date-range input:focus {
+  box-shadow: none;
+  border-color: #0ea5e9;
+}
