@@ -39,9 +39,9 @@ const individualTaskOptions = {
 
 const taskData = [
   [
-    " ",
+    "Tasks",
     "John Doe Cloud",
-    "John Doe Network Management",
+    "John Doe Network",
     "John Doe Cloud",
     "John Doe Cloud",
     "John Doe Cloud",
@@ -49,7 +49,7 @@ const taskData = [
     "John Doe Cloud",
     "John Doe Cloud",
   ],
-  [" ", 8, 2, 5, 10, 3, 4, 3, 7],
+  [" ", 8, 2, 5, 10, 3, 4, 7, 3],
 ];
 
 const taskDataOptions = {
