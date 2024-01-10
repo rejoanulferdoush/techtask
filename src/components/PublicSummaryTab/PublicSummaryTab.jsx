@@ -10,9 +10,8 @@ const taskStatusData = [
 
 const taskStatusOptions = {
   is3D: true,
-
-  chartArea: { left: 0, top: 50, right: 0, bottom: 0 },
-  legend: { position: "top" },
+  chartArea: { left: 300, top: 50, right: 250, bottom: 0 },
+  // legend: { position: "top" },
 };
 
 const individualTaskData = [
@@ -46,20 +45,48 @@ const taskData = [
     "John Doe Cloud",
     "John Doe Cloud",
     "John Doe Cloud",
+    "John Doe Cloud",
+    "John Doe Cloud",
+    "John Doe Cloud",
   ],
-  [" ", 8, 2, 5, 10, 3],
+  [" ", 8, 2, 5, 10, 3, 4, 3, 7],
 ];
 
 const taskDataOptions = {
   chart: {
     title: " ",
   },
+  legend: { position: "top" },
 };
 
 const PublicSummaryTab = () => {
   return (
-    <div className=" flex flex-wrap items-center justify-center space-3">
-      <div className="w-full mb-4">
+    <div className=" flex flex-wrap items-center justify-center space-y-10">
+      {
+        //
+        //     <div className="fixed left-0 top-1/2 -translate-y-1/2 flex flex-col border-2 border-l-0 border-sky-500 text-lg z-[99999] bg-white">
+        //     <a
+        //       href="#taskStatus"
+        //       className="border-b-2 border-sky-500 py-1 px-2 transition-all hover:bg-sky-500 hover:text-white"
+        //     >
+        //       Tasks Status
+        //     </a>
+        //     <a
+        //       href="#workload"
+        //       className="border-b-2 border-sky-500 py-1 px-2 transition-all hover:bg-sky-500 hover:text-white"
+        //     >
+        //       Workload
+        //     </a>
+        //     <a
+        //       href="#taskLength"
+        //       className="py-1 px-2 transition-all hover:bg-sky-500 hover:text-white"
+        //     >
+        //       Task Length
+        //     </a>
+        //   </div>
+        //
+      }
+      <div className="w-full" id="taskStatus">
         <h3 className="text-2xl text-center font-semibold uppercase">
           Tasks Status
         </h3>
@@ -71,7 +98,7 @@ const PublicSummaryTab = () => {
           height={"400px"}
         />
       </div>
-      <div className="w-1/2">
+      <div className="w-1/2" id="workload">
         <h3 className="text-2xl text-center font-semibold uppercase">
           Workload
         </h3>
@@ -83,7 +110,7 @@ const PublicSummaryTab = () => {
           options={individualTaskOptions}
         />
       </div>
-      <div className="w-1/2">
+      <div className="w-1/2" id="taskLength">
         <h3 className="text-2xl text-center font-semibold uppercase">
           Task Lengths
         </h3>
