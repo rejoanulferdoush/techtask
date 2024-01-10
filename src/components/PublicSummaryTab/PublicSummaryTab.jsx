@@ -10,8 +10,8 @@ const taskStatusData = [
 
 const taskStatusOptions = {
   is3D: true,
-  chartArea: { left: 300, top: 50, right: 250, bottom: 0 },
-  // legend: { position: "top" },
+  chartArea: { left: 300, top: 0, right: 250, bottom: 0 },
+  legend: { alignment: "center" },
 };
 
 const individualTaskData = [
@@ -27,7 +27,7 @@ const individualTaskOptions = {
   title: " ",
   chartArea: { width: "70%" },
   isStacked: true,
-  legend: { position: "top" },
+  legend: { position: "top", alignment: "center" },
   hAxis: {
     title: " ",
     minValue: 0,
@@ -56,7 +56,7 @@ const taskDataOptions = {
   chart: {
     title: " ",
   },
-  legend: { position: "top" },
+  legend: { position: "right", alignment: "center" },
 };
 
 const PublicSummaryTab = () => {
@@ -87,7 +87,7 @@ const PublicSummaryTab = () => {
         //
       }
       <div className="w-full" id="taskStatus">
-        <h3 className="text-2xl text-center font-semibold uppercase">
+        <h3 className="text-2xl text-center font-semibold uppercase mb-10">
           Tasks Status
         </h3>
         <Chart
