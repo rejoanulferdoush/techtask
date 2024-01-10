@@ -60,7 +60,9 @@ const PublicSummaryTab = () => {
   return (
     <div className=" flex flex-wrap items-center justify-center space-3">
       <div className="w-full mb-4">
-        <h3 className="text-2xl text-center font-semibold">Tasks Status</h3>
+        <h3 className="text-2xl text-center font-semibold uppercase">
+          Tasks Status
+        </h3>
         <Chart
           chartType="PieChart"
           data={taskStatusData}
@@ -70,7 +72,9 @@ const PublicSummaryTab = () => {
         />
       </div>
       <div className="w-1/2">
-        <h3 className="text-2xl text-center font-semibold">Workload</h3>
+        <h3 className="text-2xl text-center font-semibold uppercase">
+          Workload
+        </h3>
         <Chart
           chartType="BarChart"
           width="100%"
@@ -80,7 +84,9 @@ const PublicSummaryTab = () => {
         />
       </div>
       <div className="w-1/2">
-        <h3 className="text-2xl text-center font-semibold">Task Lengths</h3>
+        <h3 className="text-2xl text-center font-semibold uppercase">
+          Task Lengths
+        </h3>
         <Chart
           chartType="Bar"
           width="100%"
