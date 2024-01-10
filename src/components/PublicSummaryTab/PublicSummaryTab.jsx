@@ -10,7 +10,7 @@ const taskStatusData = [
 
 const taskStatusOptions = {
   is3D: true,
-  chartArea: { left: 300, top: 0, right: 250, bottom: 0 },
+  chartArea: { left: 150, top: 0, right: 150, bottom: 0 },
   legend: { alignment: "center" },
 };
 
