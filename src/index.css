@@ -6,6 +6,10 @@
   font-family: "Lexend", sans-serif;
 }
 
+.logo-font {
+  font-family: "Amaranth", sans-serif;
+}
+
 .date-range input {
   outline: none;
   border: 1px solid #d1d5db;

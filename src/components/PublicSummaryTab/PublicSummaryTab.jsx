@@ -56,6 +56,7 @@ const taskDataOptions = {
   chart: {
     title: " ",
   },
+
   legend: { position: "right", alignment: "center" },
 };
 

@@ -14,9 +14,6 @@ const PublicDataTab = () => {
 
   return (
     <div>
-      <h1 className="text-2xl text-center mb-10 font-semibold uppercase">
-        Task Table
-      </h1>
       <div className="relative flex items-center justify-center -mx-[15px] mb-8 px-15 py-4 border-2 border-sky-500 rounded-md shadow-lg before:content-['Filter_Table'] before:text-black before:absolute before:left-2 before:-top-2.5 before:bg-white before:text-xs before:px-1 before:rounded before:border-sky-500 before:border-2">
         <div className="w-1/6 px-[15px]">
           <label className="block text-sm font-medium leading-6 text-gray-900">

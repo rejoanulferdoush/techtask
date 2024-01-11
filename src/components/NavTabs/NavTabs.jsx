@@ -1,11 +1,4 @@
-import { useState } from "react";
-import PublicDataTab from "../PublicDataTab/PublicDataTab";
-import PublicSummaryTab from "../PublicSummaryTab/PublicSummaryTab";
-
-const NavTabs = () => {
-  const [summaryTab, setSummarytTab] = useState(true);
-  const [dataTab, setDataTab] = useState(false);
-
+const NavTabs = ({ summaryTab, setSummarytTab, dataTab, setDataTab }) => {
   const handleSummaryTab = () => {
     setSummarytTab(true);
     setDataTab(false);
@@ -15,10 +8,9 @@ const NavTabs = () => {
     setSummarytTab(false);
     setDataTab(true);
   };
-
   return (
     <div>
-      <ul className="flex justify-center items-center space-x-3 mb-10">
+      <ul className="flex justify-center items-center space-x-3">
         <li
           className={`text-xl uppercase px-4 py-2 shadow-sm border-2 rounded-md border-sky-500 cursor-pointer transition-all duration-150 ${
             summaryTab
@@ -44,7 +36,6 @@ const NavTabs = () => {
           Task Data
         </li>
       </ul>
-      {summaryTab ? <PublicSummaryTab /> : <PublicDataTab />}
     </div>
   );
 };
