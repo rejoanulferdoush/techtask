@@ -57,7 +57,7 @@ const AddTask = () => {
       status,
     };
     const res = await axios.post(
-      "http://localhost:3000/api/tasks/addTask",
+      "https://techops.sohochor.com/api/tasks/addTask",
       taskData,
       {
         headers: {

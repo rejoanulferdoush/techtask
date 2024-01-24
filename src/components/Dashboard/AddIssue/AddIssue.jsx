@@ -38,7 +38,7 @@ const AddIssue = () => {
       status,
     };
     const res = await axios.post(
-      "http://localhost:3000/api/issues/addIssue",
+      "https://techops.sohochor.com/api/issues/addIssue",
       taskData,
       {
         headers: {
