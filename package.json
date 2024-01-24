@@ -10,11 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.17.19",
+    "axios": "^1.6.5",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.2",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-charts": "^4.0.1",
+    "react-hook-form": "^7.49.3",
     "react-icons": "^5.0.1",
-    "react-tailwindcss-datepicker": "^1.6.6"
+    "react-router-dom": "^6.21.2",
+    "react-tailwindcss-datepicker": "^1.6.6",
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.10.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

@@ -5,12 +5,16 @@ import {
   MdOutlineSentimentDissatisfied,
   MdOutlineSentimentNeutral,
 } from "react-icons/md";
+import useTask from "../../hooks/useTasks";
+import moment from "moment";
 
 const PublicDataTab = () => {
   const [value, setValue] = useState({
     startDate: null,
     endDate: null,
   });
+
+  const [tasks] = useTask();
 
   const handleValueChange = (newValue) => {
     console.log("newValue:", newValue);
@@ -21,6 +25,8 @@ const PublicDataTab = () => {
   const [yesterdayCount, setYesterdayCount] = useState(false);
   const [weeklyCount, setWeeklyCount] = useState(false);
   const [monthlyCount, setMonthlyCount] = useState(false);
+
+  console.log(tasks);
 
   return (
     <div>
@@ -203,118 +209,36 @@ const PublicDataTab = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b-2 border-sky-500">
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe Cloud
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Cloud
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Jane Doe
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                10 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                15 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                14 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center">
-                <span className="text-sm bg-green-500 px-2 py-1 rounded-md text-white">
-                  Completed
-                </span>
-              </td>
-            </tr>
-            <tr className="border-b-2 border-sky-500">
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe Network Management
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Network
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Jane Doe
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                10 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                15 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                14 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center">
-                <span className="text-sm bg-amber-500 px-2 py-1 rounded-md text-black">
-                  In-Progress
-                </span>
-              </td>
-            </tr>
-            <tr className="border-b-2 border-sky-500">
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe Cloud
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Cloud
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Jane Doe
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                10 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                15 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                14 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center">
-                <span className="text-sm bg-slate-400 px-2 py-1 rounded-md text-black">
-                  Not Started
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe Cloud
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Cloud
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                John Doe
-              </td>
-              <td className="px-4 py-3 text-left border-sky-500 border-r-2">
-                Jane Doe
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                10 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                15 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center border-sky-500 border-r-2">
-                14 Jan, 24
-              </td>
-              <td className="px-4 py-3 text-center">
-                <span className="text-sm bg-red-500 px-2 py-1 rounded-md text-white">
-                  Overdue
-                </span>
-              </td>
-            </tr>
+            {tasks.map((task) => (
+              <tr className="border-b-2 border-sky-500">
+                <td className="px-4 py-3 text-left border-sky-500 border-r-2">
+                  {task.title}
+                </td>
+                <td className="px-4 py-3 text-left border-sky-500 border-r-2">
+                  {task.assignedAgainst}
+                </td>
+                <td className="px-4 py-3 text-left border-sky-500 border-r-2">
+                  {task.assignedBy}
+                </td>
+                <td className="px-4 py-3 text-left border-sky-500 border-r-2">
+                  {task.assignedTo}
+                </td>
+                <td className="px-4 py-3 text-center border-sky-500 border-r-2">
+                  {moment(task.startDate).format("DD MMM, YY")}
+                </td>
+                <td className="px-4 py-3 text-center border-sky-500 border-r-2">
+                  {moment(task.endDate).format("DD MMM, YY")}
+                </td>
+                <td className="px-4 py-3 text-center border-sky-500 border-r-2">
+                  {moment(task.dueDate).format("DD MMM, YY")}
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <span className="text-sm bg-green-500 px-2 py-1 rounded-md text-white">
+                    {task.status}
+                  </span>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
