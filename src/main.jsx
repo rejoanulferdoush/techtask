@@ -8,33 +8,87 @@ import Home from "./components/Home/Home";
 import AddTask from "./components/Dashboard/AddTask/AddTask";
 import AddIssue from "./components/Dashboard/AddIssue/AddIssue";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import IssuesData from "./components/Dashboard/IssuesData/IssuesData";
+import AuthProviders from "./providers/AuthProviders";
+import AddUser from "./components/Dashboard/AddUser/AddUser";
+import Login from "./components/Login/Login";
+import AddProduct from "./components/Dashboard/AddProduct/AddProduct";
+import TaskAdmin from "./components/Dashboard/TaskAdmin/TaskAdmin";
+import UserAdmin from "./components/Dashboard/UserAdmin/UserAdmin";
+import ProductAdmin from "./components/Dashboard/ProductAdmin/ProductAdmin";
+import PublicSummaryTab from "./components/PublicSummaryTab/PublicSummaryTab";
+import IssuesAdmin from "./components/Dashboard/IssuesAdmin/IssuesAdmin";
+import PrivateRoute from "./components/Dashboard/PrivateRoute/PrivateRoute";
+import UpdateUser from "./components/Dashboard/UpdateUser/UpdateUser";
+import UserUpdate from "./components/UserUpdate/UserUpdate";
+import Histories from "./components/Dashboard/Histories/Histories";
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
-  },
-  {
-    path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
-        path: "/dashboard",
-        element: <IssuesData></IssuesData>,
+        path: "/",
+        element: (
+          <PrivateRoute>
+            <PublicSummaryTab></PublicSummaryTab>
+          </PrivateRoute>
+        ),
       },
       {
-        path: "addTask",
-        element: <AddTask></AddTask>,
+        path: "task",
+        element: (
+          <PrivateRoute>
+            <TaskAdmin></TaskAdmin>
+          </PrivateRoute>
+        ),
       },
       {
-        path: "addIssue",
-        element: <AddIssue></AddIssue>,
+        path: "issues",
+        element: (
+          <PrivateRoute>
+            <IssuesAdmin></IssuesAdmin>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "user",
+        element: (
+          <PrivateRoute>
+            <UserAdmin></UserAdmin>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "product",
+        element: (
+          <PrivateRoute>
+            <ProductAdmin></ProductAdmin>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "history",
+        element: (
+          <PrivateRoute>
+            <Histories></Histories>
+          </PrivateRoute>
+        ),
       },
     ],
   },
+
+  {
+    path: "login",
+    element: <Login></Login>,
+  },
+
   {
     path: "*",
     element: <NotFound></NotFound>,
@@ -43,8 +97,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <AuthProviders>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </AuthProviders>
   </React.StrictMode>
 );

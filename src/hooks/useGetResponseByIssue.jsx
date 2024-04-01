@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-const useTask = (page, pageLimit) => {
-  const { refetch: refetchAllTasks, data: tasks = [] } = useQuery({
-    queryKey: ["tasks"],
+const useGetResponseByIssue = (id) => {
+  const { refetch: responseRefetch, data: responses = [] } = useQuery({
+    queryKey: ["responses"],
     queryFn: async () => {
       const response = await axios.get(
-        `https://techops.sohochor.com/api/tasks/allTasks?page=${page}&pageLimit=${pageLimit}`
+        `https://techops.sohochor.com/api/responses/respond/${id}`
       );
       if (response.status !== 200) {
         throw new Error("Network response was not ok");
@@ -15,7 +15,7 @@ const useTask = (page, pageLimit) => {
       return response.data;
     },
   });
-  return [tasks, refetchAllTasks];
+  return [responses, responseRefetch];
 };
 
-export default useTask;
+export default useGetResponseByIssue;
